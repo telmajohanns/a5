@@ -33,6 +33,7 @@ public class IntStack {
 
     /**
      * Returns the capacity of the stack.
+     * 
      * @return the capacity of the stack
      */
     public int getCapacity() {
@@ -42,6 +43,7 @@ public class IntStack {
     /**
      * Returns whether the stack is full.
      * A further push would throw an exception.
+     * 
      * @return true if the stack is full, false if the stack is not full
      */
     public boolean isFull() {
@@ -53,11 +55,20 @@ public class IntStack {
     }
 
     // TODO: Add isEmpty() method
-
+    public boolean isEmpty() {
+        if (nextPushLocation == theCapacity) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     /**
      * Pushes an int on the stack.
+     * 
      * @param element the int to be pushed on the stack
-     * @throws ArrayIndexOutOfBoundsException if the stack was already full. (Note that this is an unchecked exception, i.e. you do not need to catch it.) 
+     * @throws ArrayIndexOutOfBoundsException if the stack was already full. (Note
+     *                                        that this is an unchecked exception,
+     *                                        i.e. you do not need to catch it.)
      */
     public void push(int element) throws ArrayIndexOutOfBoundsException {
         theStack[nextPushLocation++] = element;
@@ -65,8 +76,11 @@ public class IntStack {
 
     /**
      * Pops an int from the stack
+     * 
      * @return the popped int
-     * @throws ArrayIndexOutOfBoundsException if the stack was already empty. (Note that this is an unchecked exception, i.e. you do not need to catch it.) 
+     * @throws ArrayIndexOutOfBoundsException if the stack was already empty. (Note
+     *                                        that this is an unchecked exception,
+     *                                        i.e. you do not need to catch it.)
      */
     public int pop() throws ArrayIndexOutOfBoundsException {
         return theStack[--nextPushLocation];

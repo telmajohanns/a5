@@ -6,13 +6,24 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class IntStackTest {
+    private IntStack s1;
 
     @Before
+    public void constructStackObjects() {
+        s1 = new IntStack();
+    }
+
     @Test
     public void testNewStackIsNotFull() {
-        IntStack stack = new IntStack();
+        assertFalse(s1.isFull());
+    }
 
-        assertFalse(stack.isFull());
+    @Test
+    public void testFullStackIsFull() {
+        for (int i = 0; i < s1.getCapacity(); i++) {
+            s1.push(i);
+        }
+        assertTrue(s1.isFull());
     }
 
 }
